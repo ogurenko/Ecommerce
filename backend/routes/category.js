@@ -7,7 +7,7 @@ const {
   read,
   update,
   remove,
-  list
+  list,
 } = require("../controllers/category");
 const { requireSignin, isAuth, isAdmin } = require("../controllers/auth");
 const { userById } = require("../controllers/user");
@@ -30,7 +30,6 @@ router.delete(
 );
 
 router.get("/categories", list);
-
 
 router.param("categoryId", categoryById);
 router.param("userId", userById);

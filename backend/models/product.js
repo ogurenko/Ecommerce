@@ -29,14 +29,18 @@ const productSchema = new mongoose.Schema(
     quantity: {
       type: Number,
     },
+    sold: {
+      type: Number,
+      defaults: 0,
+    },
     photo: {
       data: Buffer,
       contentType: String,
     },
     shipping: {
-        required: false,
-        type: Boolean
-    }
+      required: false,
+      type: Boolean,
+    },
   },
   { timestamps: true }
 );

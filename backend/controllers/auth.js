@@ -4,7 +4,6 @@ const expressJwt = require("express-jwt"); // for authorization check
 const { errorHandler } = require("../helpers/dbErrorHandler");
 require("dotenv").config();
 
-
 exports.signup = async (req, res) => {
   try {
     const user = new User(req.body);
@@ -51,13 +50,11 @@ exports.signout = (req, res) => {
   res.json({ message: "Signout success" });
 };
 
-
 exports.requireSignin = expressJwt({
   secret: process.env.JWT_SECRET,
   algorithms: ["HS256"],
   userProperty: "auth",
 });
-
 
 exports.isAuth = (req, res, next) => {
   let user = req.profile && req.auth && req.profile._id == req.auth._id;
